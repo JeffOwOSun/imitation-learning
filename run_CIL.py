@@ -65,7 +65,8 @@ if (__name__ == '__main__'):
         try:
 
             with make_carla_client(args.host, args.port) as client:
-                corl = CoRL2017(args.city_name, args.log_name)
+                corl = CoRL2017(args.city_name, args.log_name,
+                        continue_experiment=True)
                 results = corl.benchmark_agent(agent, client)
                 corl.plot_summary_test()
                 corl.plot_summary_train()
